@@ -1,0 +1,50 @@
+{
+    "next_id": 4,
+    "tasks": [
+        {
+            "id": 1,
+            "name": "Buy milk",
+            "date": "Wed Jun 24 11:45:18 2026",
+            "status": "To Do",
+            "content": "2L whole milk",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:45:18 2026",
+                    "name": "Buy milk",
+                    "status": "To Do"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Study Python",
+            "date": "Wed Jun 24 11:45:50 2026",
+            "status": "To Do",
+            "content": "Enums and argparse",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:45:50 2026",
+                    "name": "Study Python",
+                    "status": "To Do"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Gym",
+            "date": "Wed Jun 24 11:46:06 2026",
+            "status": "To Do",
+            "content": "Push + pull day",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:46:06 2026",
+                    "name": "Gym",
+                    "status": "To Do"
+                }
+            ]
+        }
+    ]
+}
