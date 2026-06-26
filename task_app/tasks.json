@@ -3,7 +3,7 @@
     "tasks": [
         {
             "id": 1,
-            "name": "Buy milk",
+            "name": "Go shopping",
             "date": "Wed Jun 24 11:45:18 2026",
             "status": "To Do",
             "content": "2L whole milk",
@@ -12,6 +12,18 @@
                     "action taken": "create_task",
                     "time": "Wed Jun 24 11:45:18 2026",
                     "name": "Buy milk",
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "title_change",
+                    "time": "Fri Jun 26 10:54:00 2026",
+                    "name": null,
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "title_change",
+                    "time": "Fri Jun 26 10:54:29 2026",
+                    "name": "Go shopping",
                     "status": "To Do"
                 }
             ]
