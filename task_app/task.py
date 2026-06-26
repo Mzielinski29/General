@@ -1,6 +1,5 @@
 import time
 from enums import UserActions, TaskStatus
-from storage import save_task
 from cli_handler import ask_user
 
 class Task:
@@ -35,7 +34,6 @@ class Task:
     def edit_task_title(self, new_title):
         self.name = new_title
         self._update('title_change')
-        save_task()
 
     def edit_task_content(self, new_content):
         msg = f'Are you sure you want to overwrite the content?\nWARNING! Current content will be lost [Yes/No/Cancel]: '
@@ -45,7 +43,6 @@ class Task:
             if user_action == UserActions.YES:
                 self.content = new_content
                 self._update('content_change')
-                save_task()
                 return
             elif user_action == UserActions.NO:
                 new_content = input('Enter the new content again: ')
@@ -55,7 +52,6 @@ class Task:
     def change_task_status(self, new_status):
         self.status = new_status
         self._update('status_change')
-        save_task()
 
     def view_task_history(self):
         print('-----------')

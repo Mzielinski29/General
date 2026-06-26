@@ -1,20 +1,45 @@
-from enums import UserActions
+from enums import TaskStatus
 import sys
-from storage import save_task, load_tasks
+from storage import save_data, load_data
 from task import Task
 
 TASKS = {}
 NEXT_ID = 1
 
-def ask_user(msg):
-    while True:
-        answer = input(msg).strip().lower()
+def load_state(data_file):
+    global TASKS, NEXT_ID
 
-        try:
-            return UserActions(answer)
+    data = load_data(data_file)
 
-        except ValueError:
-            print('Invalid option.')
+    TASKS.clear()
+
+    for item in data["tasks"]:
+        task = Task(item["name"], item["content"])
+        task.date = item["date"]
+        task.status = TaskStatus(item["status"])
+        task.history = item["history"]
+
+        TASKS[item["id"]] = task
+
+    NEXT_ID = data["next_id"]
+
+def save_state(data_file):
+    data = {
+        "next_id": NEXT_ID,
+        "tasks": []
+    }
+
+    for tid, task in TASKS.items():
+        data["tasks"].append({
+            "id": tid,
+            "name": task.name,
+            "date": task.date,
+            "status": task.status.value,
+            "content": task.content,
+            "history": task.history
+        })
+
+    save_data(data_file, data)
 
 def create_task(name, content):
     global NEXT_ID
@@ -25,7 +50,7 @@ def create_task(name, content):
     task_id = NEXT_ID
     NEXT_ID += 1
 
-    save_task()
+    save_state()
 
     return task_id
 
@@ -102,6 +127,7 @@ def edit_title(args):
     task = get_task(args.id)
     if task:
         task.edit_task_title(args.title)
+        save_state()
 
 def edit_content(args):
     require_args('edit-content', args, 'id', 'content')
@@ -109,6 +135,7 @@ def edit_content(args):
     task = get_task(args.id)
     if task:
         task.edit_task_content()
+        save_state()
 
 def change_status(args):
     require_args('change-status', args, 'id', 'status')
@@ -116,6 +143,7 @@ def change_status(args):
     task = get_task(args.id)
     if task:
         task.change_task_status()
+        save_state()
 
 def task_history(args):
     require_args('task-history', args, 'id')
@@ -123,3 +151,4 @@ def task_history(args):
     task = get_task(args.id)
     if task:
         task.view_task_history()
+        save_state()

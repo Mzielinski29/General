@@ -10,7 +10,7 @@ COMMANDS = ['add-task','show-task','show-all-tasks','edit-title','edit-content',
 
 if __name__ == "__main__":
 
-    commands.load_tasks(DATA_FILE)
+    commands.load_state(DATA_FILE)
 
     args = parse()
 

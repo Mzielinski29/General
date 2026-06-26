@@ -1,4 +1,15 @@
 import argparse
+from enums import UserActions
+
+def ask_user(msg):
+    while True:
+        answer = input(msg).strip().lower()
+
+        try:
+            return UserActions(answer)
+
+        except ValueError:
+            print('Invalid option.')
 
 def parse():
     parser = argparse.ArgumentParser()
