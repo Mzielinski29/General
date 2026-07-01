@@ -20,19 +20,18 @@ if __name__ == "__main__":
         commands.usages_output()
 
     if args.command == 'add-task':
-        commands.add_task(args)
+        commands.add_task(args, DATA_FILE)
     elif args.command == 'show-task':
         commands.show_task(args)
     elif args.command == 'show-all-tasks':
         commands.show_all_tasks()
     elif args.command == 'edit-title':
-        commands.edit_title(args)
+        commands.edit_title(args, DATA_FILE)
     elif args.command == 'edit-content':
-        commands.edit_content(args)
+        commands.edit_content(args, DATA_FILE)
     elif args.command == 'change-status':
-        commands.change_status(args)
+        commands.change_status(args, DATA_FILE)
     elif args.command == 'task-history':
-        commands.task_history(args)
+        commands.task_history(args, DATA_FILE)
     else:
         print(f'Invalid syntax\t try --help or --commands for list of commands / --usage for examples')
-

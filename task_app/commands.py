@@ -41,7 +41,7 @@ def save_state(data_file):
 
     save_data(data_file, data)
 
-def create_task(name, content):
+def create_task(name, content, data_file):
     global NEXT_ID
 
     task = Task(name, content)
@@ -50,7 +50,7 @@ def create_task(name, content):
     task_id = NEXT_ID
     NEXT_ID += 1
 
-    save_state()
+    save_state(data_file)
 
     return task_id
 
@@ -108,10 +108,10 @@ def usages_output():
     print(f'usage examples:\n\t[this_file] add-task --title "[title]" --content "[content]"\n\t[this_file] edit-title --title "[new_title]"')
     sys.exit()
 
-def add_task(args):
+def add_task(args, data_file):
     require_args('add-task', args, 'title', 'content')
     forbid_args('add-task', args, 'id', 'status')
-    task_id = create_task(args.title, args.content)
+    task_id = create_task(args.title, args.content, data_file)
     print(f"Task created with ID {task_id}")
 
 def show_task(args):
@@ -121,34 +121,34 @@ def show_task(args):
     if task:
         task.show_task()
 
-def edit_title(args):
+def edit_title(args, data_file):
     require_args('edit-title', args, 'id', 'title')
     forbid_args('edit-title', args, 'content', 'status')
     task = get_task(args.id)
     if task:
         task.edit_task_title(args.title)
-        save_state()
+        save_state(data_file)
 
-def edit_content(args):
+def edit_content(args, data_file):
     require_args('edit-content', args, 'id', 'content')
     forbid_args('edit-content', args, 'title', 'status')
     task = get_task(args.id)
     if task:
-        task.edit_task_content()
-        save_state()
+        task.edit_task_content(args.content)
+        save_state(data_file)
 
-def change_status(args):
+def change_status(args, data_file):
     require_args('change-status', args, 'id', 'status')
     forbid_args('change-status', args, 'title', 'content')
     task = get_task(args.id)
     if task:
-        task.change_task_status()
-        save_state()
+        task.change_task_status(args.status)
+        save_state(data_file)
 
-def task_history(args):
+def task_history(args, data_file):
     require_args('task-history', args, 'id')
     forbid_args('task-history', args, 'title', 'content', 'status')
     task = get_task(args.id)
     if task:
         task.view_task_history()
-        save_state()
+        save_state(data_file)

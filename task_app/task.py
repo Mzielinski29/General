@@ -29,7 +29,7 @@ class Task:
         })
 
     def show_task(self):
-        print(f'{self.name} - created: {self.date}\n{self.status.value} - last modified: {time.ctime()}\n{self.content}')
+        print(f'{self.name} - created: {self.date}\n{self.status.value} - last modified: {self.history[-1]["time"]}\n{self.content}')
 
     def edit_task_title(self, new_title):
         self.name = new_title
@@ -50,7 +50,11 @@ class Task:
             user_action = ask_user(msg)
 
     def change_task_status(self, new_status):
-        self.status = new_status
+        self.status = \
+            TaskStatus.TODO if TaskStatus.TODO.value.lower().strip() == new_status.lower().strip() else \
+            TaskStatus.IN_PROGRESS if TaskStatus.IN_PROGRESS.value.lower().strip() == new_status.lower().strip() else \
+            TaskStatus.ON_HOLD if TaskStatus.ON_HOLD.value.lower().strip() == new_status.lower().strip() else \
+            TaskStatus.FINISHED if TaskStatus.FINISHED.value.lower().strip() == new_status.lower().strip() else None
         self._update('status_change')
 
     def view_task_history(self):
