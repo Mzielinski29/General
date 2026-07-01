@@ -1,0 +1,119 @@
+{
+    "next_id": 5,
+    "tasks": [
+        {
+            "id": 1,
+            "name": "Buy Milk",
+            "date": "Wed Jun 24 11:45:18 2026",
+            "status": "In Progress",
+            "content": "2L whole milk",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:45:18 2026",
+                    "name": "Buy milk",
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "title_change",
+                    "time": "Fri Jun 26 10:54:00 2026",
+                    "name": null,
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "title_change",
+                    "time": "Fri Jun 26 10:54:29 2026",
+                    "name": "Go shopping",
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "status_change",
+                    "time": "Wed Jul  1 14:53:15 2026",
+                    "name": "Go shopping",
+                    "status": "In Progress"
+                },
+                {
+                    "action taken": "status_change",
+                    "time": "Wed Jul  1 14:59:49 2026",
+                    "name": "Go shopping",
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "status_change",
+                    "time": "Wed Jul  1 15:01:29 2026",
+                    "name": "Go shopping",
+                    "status": "On Hold"
+                },
+                {
+                    "action taken": "title_change",
+                    "time": "Wed Jul  1 15:03:45 2026",
+                    "name": "Buy Milk",
+                    "status": "On Hold"
+                },
+                {
+                    "action taken": "status_change",
+                    "time": "Wed Jul  1 15:08:19 2026",
+                    "name": "Buy Milk",
+                    "status": "In Progress"
+                },
+                {
+                    "action taken": "status_change",
+                    "time": "Wed Jul  1 15:09:44 2026",
+                    "name": "Buy Milk",
+                    "status": "In Progress"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Study Python",
+            "date": "Wed Jun 24 11:45:50 2026",
+            "status": "To Do",
+            "content": "Enums and argparse",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:45:50 2026",
+                    "name": "Study Python",
+                    "status": "To Do"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Gym",
+            "date": "Wed Jun 24 11:46:06 2026",
+            "status": "To Do",
+            "content": "Push + pull day",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jun 24 11:46:06 2026",
+                    "name": "Gym",
+                    "status": "To Do"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "TEST",
+            "date": "Wed Jul  1 14:40:14 2026",
+            "status": "To Do",
+            "content": "New Content again",
+            "history": [
+                {
+                    "action taken": "create_task",
+                    "time": "Wed Jul  1 14:40:14 2026",
+                    "name": "TEST",
+                    "status": "To Do"
+                },
+                {
+                    "action taken": "content_change",
+                    "time": "Wed Jul  1 14:44:29 2026",
+                    "name": "TEST",
+                    "status": "To Do"
+                }
+            ]
+        }
+    ]
+}
